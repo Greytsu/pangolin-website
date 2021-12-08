@@ -1,0 +1,24 @@
+<div class="container">
+  <img src="../../../assets/Pangolin.svg"/>
+  <div class="card">
+    <h2>Bienvenue Pangolin !</h2>
+    <div class="form-group">
+      <input [(ngModel)]="login" for="login" name="login" placeholder="Email">
+      <input [(ngModel)]="password" for="password" name="password" placeholder="Mot de passe" type="password" >
+      <input [(ngModel)]="password2" for="password2" name="password2" placeholder="Mot de passe à nouveau" type="password" >
+      <input [(ngModel)]="name" for="name" name="name" placeholder="Nom">
+      <select [(ngModel)]="role" for="role" name="role">
+        <option value="">Choisissez un role</option>
+        <option value="Guerrier">Guerrier</option>
+        <option value="Alchimiste">Alchimiste</option>
+        <option value="Sorcier">Sorcier</option>
+        <option value="Espions">Espions</option>
+        <option value="Enchanteur">Enchanteur</option>
+      </select>
+      <app-button text="S'inscrire" (btnClick)="signup()"></app-button>
+    </div>
+
+    <p>Vous êtes un déjà un pangolin ? <a routerLink="../signin">Cliquez ici pour vous connecter</a></p>
+  </div>
+</div>
+

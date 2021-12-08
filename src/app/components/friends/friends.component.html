@@ -1,0 +1,13 @@
+<div class="container" >
+  <h2>Amis</h2>
+  <div class="friends-container">
+    <div *ngFor="let User of friends_users" class="friend-card">
+      <img src="../../../assets/Pangolin.svg"/>
+      <div class="friend-details">
+        <h3 class="details">{{User.name}}</h3>
+        <h4 class="details">{{User.role}}</h4>
+      </div>
+      <fa-icon [icon]="faTimes" [ngStyle]="{color: 'red'}" (click)="onDelete(User)"></fa-icon>
+    </div>
+  </div>
+</div>

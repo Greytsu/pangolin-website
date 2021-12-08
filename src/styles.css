@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: "Epilogue";
+  src: local("Epilogue"),
+    url(./assets/fonts/Epilogue/Epilogue-Regular.ttf) format("truetype");
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  height: 100vh;
+  font-family: "Epilogue";
+}

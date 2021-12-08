@@ -1,0 +1,13 @@
+<div class="container">
+  <img src="../../../assets/Pangolin.svg"/>
+  <div class="card">
+    <h2>Bonjour Pangolin !</h2>
+    <div class="form-group">
+      <input [(ngModel)]="login" for="login" name="login" placeholder="Login">
+      <input [(ngModel)]="password" for="password" name="password" placeholder="Password" type="password">
+      <app-button text="Se connecter" (btnClick)="signin()"></app-button>
+      <p>Vous êtes un nouveau pangolin ? <a routerLink="../signup">Cliquez ici pour vous créer un compte</a></p>
+    </div>
+  </div>
+</div>
+
