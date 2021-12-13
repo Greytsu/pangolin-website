@@ -26,8 +26,10 @@ export class SigninComponent implements OnInit {
 
   signin(){
     const token = of("token");
+
     this.authService.authenticate(this.login, this.password).subscribe(
       data => {
+        console.log(data);
         this.tokenService.saveToken(data.access_token)
         this.tokenService.saveUser(data.user)
         this.reloadPage();

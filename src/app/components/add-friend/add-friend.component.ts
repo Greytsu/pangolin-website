@@ -19,12 +19,28 @@ export class AddFriendComponent implements OnInit {
 
   addFriend(username:String){
     if(username){
+      const user:User = this.tokenService.getUser()
       this.usersService.getByUsername(username).subscribe(
         data => {
           if(data){
-            const user:User = this.tokenService.getUser()
-
-            this.updateUser(user, data._id)
+            const friend:User = data
+            if(friend._id && user._id){
+              this.updateUser(user, friend._id)
+              this.updateUser(data, user._id)
+            }
+          }else{
+            if(user._id){
+              const userToCreate:User = {login:username+'@appartoo.com', password:username, name:username, role:'Guerrier', friends:[user._id]}
+              this.usersService.saveUser(userToCreate).subscribe(
+                data => {
+                  console.log(data)
+                  this.updateUser(user, data._id)
+                },
+                error =>{
+                  console.log(error);
+                }
+              )
+            }
           }
         }
       )
@@ -42,4 +58,6 @@ export class AddFriendComponent implements OnInit {
       )
     }
   }
+
+
 }

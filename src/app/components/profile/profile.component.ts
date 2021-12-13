@@ -43,11 +43,15 @@ export class ProfileComponent implements OnInit {
     const user = this.tokenService.getUser();
     user.role = this.role;
 
-    this.usersService.saveUser(user).subscribe(
+    this.usersService.updateRole(user).subscribe(
       data => {
-        if(data.acknowledged){
-
+        console.log(data.acknowledged);
+        if(!data.acknowledged){
+          alert("Erreur lors du changement de rôle")
         }
+      },
+      err =>{
+        alert("Erreur lors du changement de rôle")
       }
     )
   }

@@ -29,7 +29,12 @@ export class UsersService {
     return this.http.patch(apiUrl + userId, {friends:newFriends}, httpOptions)
   }
 
+  updateRole(user:User): Observable<any>{
+    return this.http.patch(apiUrl + user._id, {role:user.role}, httpOptions)
+  }
+
   saveUser(user:User):Observable<any>{
+    console.log("user");
     return this.http.post(apiUrl, user, httpOptions)
   }
 
